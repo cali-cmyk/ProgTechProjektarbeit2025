@@ -72,7 +72,7 @@ public class Dart extends JFrame {
 					SpielerhinzufuegenButton.setVisible(true);
 					ListeSpielerTextArea.setVisible(true);
 
-					ListeSpielerTextArea.append( spielerName + "\n");
+					ListeSpielerTextArea.append("- " + spielerName + "\n");
 
 					ListeSpielerTextArea.setBackground(Color.white);
 
