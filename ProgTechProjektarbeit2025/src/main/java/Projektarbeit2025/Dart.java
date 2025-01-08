@@ -1,6 +1,7 @@
 package Projektarbeit2025;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ public class Dart extends JFrame {
 	private JButton NeuesSpielbutton;
 
 	private JPanel DartPanel;
-	private JLabel SpielerHinzufuegenLabel;
+	private JLabel SpielerLabel;
 	private JButton SpielerhinzufuegenButton;
 	private JTextArea ListeSpielerTextArea;
+	private JLabel SpielLabel;
+	private JButton NeuesSpielButton;
 	private JTextField SpielerListetextField;
 	private JLabel RundeLabel;
 
@@ -25,22 +28,24 @@ public class Dart extends JFrame {
 		// erstellt fenster
 		setTitle("Dart");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(600,350);
+		setSize(250,400);
 		setContentPane(DartPanel);
 		setVisible(true);
+
+
 
 		spielerListe = new ArrayList<>();
 
 
-		NeuesSpielbutton.addActionListener(new ActionListener() {
+		NeuesSpielButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//lässt NeuesSpielbutton verschwinden
-				NeuesSpielbutton.setVisible(false);
-
+				NeuesSpielButton.setVisible(false);
 				//macht spieler hinzufügen button und liste + andere sachen möglich
-				SpielerHinzufuegenLabel.setVisible(true);
+				SpielerLabel.setVisible(true);
 				SpielerhinzufuegenButton.setVisible(true);
+				ListeSpielerTextArea.setVisible(false);
 
 			}
 		});
@@ -48,7 +53,7 @@ public class Dart extends JFrame {
 		SpielerhinzufuegenButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				setTitle("Spiel 1");
 
 				String spielerName = JOptionPane.showInputDialog("Name des Spielers");
 
@@ -65,20 +70,24 @@ public class Dart extends JFrame {
 					//spielerhinzufuegen button & spielerlistetexfield werden sichtbar gesetzt
 
 					SpielerhinzufuegenButton.setVisible(true);
-
 					ListeSpielerTextArea.setVisible(true);
 
-					ListeSpielerTextArea.setText(spielerName);
+					ListeSpielerTextArea.append( spielerName + "\n");
 
-					//Debug
-					System.out.println("Aktuelle Spieler-Liste: ");
-					for (Spiel spiel : spielerListe) {
-						System.out.println("- " + spiel.getName());
-					}
+					ListeSpielerTextArea.setBackground(Color.white);
+
+					ListeSpielerTextArea.setFont(ListeSpielerTextArea.getFont().deriveFont(Font.BOLD));
+
+
+
+					System.out.println(" - " + spielerName);
+
+
 				}
 				else{
 					JOptionPane.showMessageDialog(null, "Spielername darf nicht leer sein");
 				}
+
 
 			}
 		});

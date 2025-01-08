@@ -10,7 +10,6 @@ public class Spiel {
 	public Spiel(int punkte, String name) {
 		this.punkte = 0;
 		this.name = name;
-		System.out.println("Neues Spiel für Spieler " + name + "erstellt.");
 	}
 
 	//Getter & Setter
