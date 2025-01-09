@@ -3,12 +3,12 @@ package Projektarbeit2025;
 public class Spiel {
 
 	//Attribute
-	private int punkte;
+	public int punkte;
 	private String name;
 
 	//Konstruktor
-	public Spiel(int punkte, String name) {
-		this.punkte = 0;
+	public Spiel(int punkte, String name) {		//Punkte die man benötigt um zu gewinnen (301 Punkte)
+		this.punkte = 0;	//Punkte die man gerade wirft und einträgt -> verwende ich um zu verdoppeln ...?
 		this.name = name;
 		System.out.println("Neues Spiel für Spieler " + name + "erstellt.");
 	}
