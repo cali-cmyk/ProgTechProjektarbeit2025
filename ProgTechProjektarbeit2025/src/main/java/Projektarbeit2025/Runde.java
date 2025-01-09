@@ -3,6 +3,7 @@ package Projektarbeit2025;
 public class Runde extends Spiel {
 
     //Frage: Wie bekomme ich mein Fenster wo Punkte eingetragen werden?
+    //Antwort: Textfield1.getText() -> holt den Inhalt aus dem Textfield raus :)
     //Das wird benötigt um die User Daten zu bekommen
 
     //Attribute
