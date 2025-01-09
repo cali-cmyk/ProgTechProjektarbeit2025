@@ -15,6 +15,7 @@ public class Dart extends JFrame {
 	private JTextArea ListeSpielerTextArea;
 	private JLabel SpielLabel;
 	private JButton NeuesSpielButton;
+	private JButton SpielStartenButton;
 	private JTextField SpielerListetextField;
 	private JLabel RundeLabel;
 
@@ -30,11 +31,13 @@ public class Dart extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(250,400);
 		setContentPane(DartPanel);
+		SpielStartenButton.setVisible(false);
 		setVisible(true);
 
 
 
 		spielerListe = new ArrayList<>();
+
 
 
 		NeuesSpielButton.addActionListener(new ActionListener() {
@@ -77,10 +80,13 @@ public class Dart extends JFrame {
 					ListeSpielerTextArea.setBackground(Color.white);
 
 					ListeSpielerTextArea.setFont(ListeSpielerTextArea.getFont().deriveFont(Font.BOLD));
+					SpielStartenButton.setVisible(true);
 
 
 
 					System.out.println(" - " + spielerName);
+
+					SpielStartenButton.setVisible(true);
 
 
 				}
@@ -88,6 +94,16 @@ public class Dart extends JFrame {
 					JOptionPane.showMessageDialog(null, "Spielername darf nicht leer sein");
 				}
 
+
+			}
+		});
+
+		SpielStartenButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				dispose();
+				Runde runde = new Runde();
 
 			}
 		});
