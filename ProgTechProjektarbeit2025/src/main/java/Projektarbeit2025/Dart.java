@@ -63,15 +63,13 @@ public class Dart extends JFrame {
 				if(spielerName != null && !spielerName.trim().isEmpty()) {
 
 
-					//erstellen neues spielobjekt mit input namen
+					//erstellen neues spielobjekt mit input namen und den benötigten Punkte um zu gewinnen
 					Spiel neuesSpiel = new Spiel(301, spielerName);
 
 					//spielobjekt wird der spielerliste hinzugefügt
-
 					spielerListe.add(neuesSpiel);
 
 					//spielerhinzufuegen button & spielerlistetexfield werden sichtbar gesetzt
-
 					SpielerhinzufuegenButton.setVisible(true);
 					ListeSpielerTextArea.setVisible(true);
 

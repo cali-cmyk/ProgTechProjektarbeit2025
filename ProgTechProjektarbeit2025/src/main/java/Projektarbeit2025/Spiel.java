@@ -5,11 +5,13 @@ public class Spiel {
 	//Attribute
 	private int punkte;
 	private String name;
+	private int punkteGewinn;
 
 	//Konstruktor
-	public Spiel(int punkte, String name) {
+	public Spiel(int punkteGewinn, String name) {
 		this.punkte = 0;
 		this.name = name;
+		this.punkteGewinn = punkteGewinn;
 	}
 
 	//Getter & Setter
@@ -17,7 +19,7 @@ public class Spiel {
 		return punkte;
 	}
 
-	public void setPunkte(){
+	public void setPunkte(int punkte){
 		this.punkte = punkte;
 	}
 
@@ -25,8 +27,16 @@ public class Spiel {
 		return name;
 	}
 
-	public void setName(){
+	public void setName(String name){
 		this.name = name;
+	}
+
+	public int getPunkteGewinn() {
+		return punkteGewinn;
+	}
+
+	public void setPunkteGewinn(int punkteGewinn){
+		this.punkteGewinn = punkteGewinn;
 	}
 
 }
