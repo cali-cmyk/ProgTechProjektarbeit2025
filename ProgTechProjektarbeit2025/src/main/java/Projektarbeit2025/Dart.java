@@ -22,7 +22,7 @@ public class Dart extends JFrame {
 
 	//Liste der Spieler
 
-	ArrayList<Spiel>  spielerListe;
+	ArrayList<Spiel>  spielerListe;		//wird dadurch punkte als auch Spielername gespeichert?
 
 
 	public Dart(){
@@ -111,6 +111,7 @@ public class Dart extends JFrame {
 	}
 
 	public static void main(String[] args) {
+
 		new Dart();
 	}
 }
