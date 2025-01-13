@@ -21,7 +21,6 @@ public class Dart extends JFrame {
 
 
 	//Liste der Spieler
-
 	ArrayList<Spiel>  spielerListe;		//wird dadurch punkte als auch Spielername gespeichert?
 
 

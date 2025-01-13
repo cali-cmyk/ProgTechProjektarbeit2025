@@ -10,7 +10,7 @@ public class RundeFunktion extends Spiel{
     private boolean doppeltePunkte;
     private boolean verdreifachePunkte;
 
-    public void verdoppelPunkte()
+    public void verdoppelPunkte()   //!!!!wieso kann die Funktion nicht von anderen Klassen benutzt werden obwohl sie public ist?!!!!
     {
         if(doppeltePunkte)
         {

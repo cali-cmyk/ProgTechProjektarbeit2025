@@ -5,9 +5,7 @@ import java.util.ArrayList;
 
 public class Runde extends JFrame {
 
-	private JLabel RundeLabel;
 	private JPanel RundePanel;
-	private JList testList;
 
 
 	public Runde(){
@@ -15,17 +13,15 @@ public class Runde extends JFrame {
 		setTitle("Runde");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(250,400);
-		setContentPane(RundePanel);
+		setContentPane(RundePanel);	//!!!!sind diese angaben noch aktuell oder ist das durch die Swing Unit egal geworden?!!!!
 		setVisible(true);
 
-		//testList.get
-		ArrayList<Runde> punkteListe;
+		//Liste um Punkte sortieren zu können zwischenspeichern
+		ArrayList<Integer> punkteListe;
 		punkteListe = new ArrayList<>();
-
 	}
 
 	public static void main(String[] args) {
-
 		new Runde();
 	}
 }
