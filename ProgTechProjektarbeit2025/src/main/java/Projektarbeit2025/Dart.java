@@ -21,7 +21,7 @@ public class Dart extends JFrame {
 
 
 	//Liste der Spieler
-	ArrayList<Spiel>  spielerListe;		//wird dadurch punkte als auch Spielername gespeichert?
+	ArrayList<Spiel>  spielerListe;		//!!!wird dadurch punkte als auch Spielername gespeichert?!!!!
 
 
 	public Dart(){
@@ -58,13 +58,14 @@ public class Dart extends JFrame {
 				setTitle("Spiel 1");
 
 				String spielerName = JOptionPane.showInputDialog("Name des Spielers");
+				int punkte = 0;		//Platzhalter bis richtige Punkte eingegeben werden
 
 				if(spielerName != null && !spielerName.trim().isEmpty()) {
 
 
 					//erstellen neues spielobjekt mit input namen und den benötigten Punkte um zu gewinnen
-					Spiel neuesSpiel = new Spiel(301, spielerName);
-
+					Spiel neuesSpiel = new Spiel(301, punkte, spielerName);	//!!!!Problem das für jeden Name/Punkte ein neues Spiel (Logikfehler) Objekt erstellt werden muss?!!!
+																						//Idee: Klasse Spiel in Spieler umbennen und Dart in Spiel? Von der Logik plausibler?
 					//spielobjekt wird der spielerliste hinzugefügt
 					spielerListe.add(neuesSpiel);
 

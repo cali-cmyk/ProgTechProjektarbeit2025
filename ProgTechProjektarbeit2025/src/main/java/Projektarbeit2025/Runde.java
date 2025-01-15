@@ -7,9 +7,8 @@ public class Runde extends JFrame {
 
 	private JPanel RundePanel;
 
-
 	public Runde(){
-		// erstellt fenster
+		//erstellt fenster
 		setTitle("Runde");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(250,400);
@@ -19,9 +18,13 @@ public class Runde extends JFrame {
 		//Liste um Punkte sortieren zu können zwischenspeichern
 		ArrayList<Integer> punkteListe;
 		punkteListe = new ArrayList<>();
+
+		//RundeFunktion runde1 = new RundeFunktion(dieSichErgebendeGewinnPunkte, diePunkteDieEingetragenWurden, denNamenDesDerzeitigenSpielers);
+		//runde1.verdoppelPunkte();
 	}
 
 	public static void main(String[] args) {
 		new Runde();
 	}
+
 }

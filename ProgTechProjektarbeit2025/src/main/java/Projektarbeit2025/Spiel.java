@@ -8,8 +8,8 @@ public class Spiel {
 	private int punkteGewinn;
 
 	//Konstruktor
-	public Spiel(int punkteGewinn, String name) {
-		this.punkte = 0;
+	public Spiel(int punkteGewinn, int punkte, String name) {
+		this.punkte = punkte;
 		this.name = name;
 		this.punkteGewinn = punkteGewinn;
 	}

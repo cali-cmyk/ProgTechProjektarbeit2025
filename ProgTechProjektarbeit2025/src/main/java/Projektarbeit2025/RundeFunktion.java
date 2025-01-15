@@ -2,15 +2,15 @@ package Projektarbeit2025;
 
 public class RundeFunktion extends Spiel{
 
-    public RundeFunktion(int punkte, String name) {
-        super(punkte, name);
+    public RundeFunktion(int punkteGewinn, int punkte, String name) {   //!!!muss RundeFunktion in das UML eingebaut werden (Wie?)!!!
+        super(punkteGewinn, punkte, name);
     }
 
     //Attribute
     private boolean doppeltePunkte;
     private boolean verdreifachePunkte;
 
-    public void verdoppelPunkte()   //!!!!wieso kann die Funktion nicht von anderen Klassen benutzt werden obwohl sie public ist?!!!!
+    public void verdoppelPunkte()   //kann genutzt werden wenn Objekt gebildet wurde
     {
         if(doppeltePunkte)
         {
@@ -37,5 +37,7 @@ public class RundeFunktion extends Spiel{
         resulierendePunkte = gewinnPunkte - abzuziehendePunkte;
         setPunkteGewinn(resulierendePunkte);
     }
+
+    //Methode für switch von einem Spieler auf den anderen während einer Runde (benutzen des name Attributs)
 
 }
