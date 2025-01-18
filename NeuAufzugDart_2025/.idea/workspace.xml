@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d21baa6f-7477-4f79-8555-e8f2940e7e04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Dart$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Dart$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Dart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Runde.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/RundeFunktion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Spiel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/Projekt_Dart.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Projekt_Dart/NeuAufzugDart_2025/pom.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Veldnastar"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/cali-cmyk/ProgTechProjektarbeit2025.git",
+    "accountId": "c13a77fd-5d04-4aa7-862b-4b527189465c"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2roDU30t2E5x9UjeXHs8ZvNTkyY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Git_Projekte/Projektarbeit 2025"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NeuAufzugDart_2025" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NeuAufzugDart_2025" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d21baa6f-7477-4f79-8555-e8f2940e7e04" name="Changes" comment="" />
+      <created>1737216546742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737216546742</updated>
+    </task>
+    <servers />
+  </component>
+</project>
