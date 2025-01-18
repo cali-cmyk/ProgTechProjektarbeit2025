@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_rebase_[Changes]" date="1737214956406" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before rebase [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Runde.class" />
+    <option name="AFTER_PATH" value="ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Runde.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Runde.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Dart$3.class" />
+    <option name="AFTER_PATH" value="ProgTechProjektarbeit2025/target/classes/Projektarbeit2025/Dart$3.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/Dart$3.class" />
+  </binary>
+</changelist>

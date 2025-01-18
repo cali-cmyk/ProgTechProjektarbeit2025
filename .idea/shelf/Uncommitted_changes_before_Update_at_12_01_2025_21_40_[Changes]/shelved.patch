@@ -1,0 +1,179 @@
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Projektarbeit2025;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.util.ArrayList;\r\n\r\npublic class Dart extends JFrame {\r\n\tprivate JButton NeuesSpielbutton;\r\n\r\n\tprivate JPanel DartPanel;\r\n\tprivate JLabel SpielerLabel;\r\n\tprivate JButton SpielerhinzufuegenButton;\r\n\tprivate JTextArea ListeSpielerTextArea;\r\n\tprivate JLabel SpielLabel;\r\n\tprivate JButton NeuesSpielButton;\r\n\tprivate JButton SpielStartenButton;\r\n\tprivate JTextField SpielerListetextField;\r\n\tprivate JLabel RundeLabel;\r\n\r\n\r\n\t//Liste der Spieler\r\n\r\n\tArrayList<Spiel>  spielerListe;\r\n\r\n\r\n\tpublic Dart(){\r\n\t\t// erstellt fenster\r\n\t\tsetTitle(\"Dart\");\r\n\t\tsetDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\t\tsetSize(250,400);\r\n\t\tsetContentPane(DartPanel);\r\n\t\tSpielStartenButton.setVisible(false);\r\n\t\tsetVisible(true);\r\n\r\n\r\n\r\n\t\tspielerListe = new ArrayList<>();\r\n\r\n\r\n\r\n\t\tNeuesSpielButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\t\t\t\t//lässt NeuesSpielbutton verschwinden\r\n\t\t\t\tNeuesSpielButton.setVisible(false);\r\n\t\t\t\t//macht spieler hinzufügen button und liste + andere sachen möglich\r\n\t\t\t\tSpielerLabel.setVisible(true);\r\n\t\t\t\tSpielerhinzufuegenButton.setVisible(true);\r\n\t\t\t\tListeSpielerTextArea.setVisible(false);\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tSpielerhinzufuegenButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\t\t\t\tsetTitle(\"Spiel 1\");\r\n\r\n\t\t\t\tString spielerName = JOptionPane.showInputDialog(\"Name des Spielers\");\r\n\r\n\t\t\t\tif(spielerName != null && !spielerName.trim().isEmpty()) {\r\n\r\n\r\n\t\t\t\t\t//erstellen neues spielobjekt mit input namen\r\n\t\t\t\t\tSpiel neuesSpiel = new Spiel(301, spielerName);\r\n\r\n\t\t\t\t\t//spielobjekt wird der spielerliste hinzugefügt\r\n\r\n\t\t\t\t\tspielerListe.add(neuesSpiel);\r\n\r\n\t\t\t\t\t//spielerhinzufuegen button & spielerlistetexfield werden sichtbar gesetzt\r\n\r\n\t\t\t\t\tSpielerhinzufuegenButton.setVisible(true);\r\n\t\t\t\t\tListeSpielerTextArea.setVisible(true);\r\n\r\n\t\t\t\t\tListeSpielerTextArea.append(\"- \" + spielerName + \"\\n\");\r\n\r\n\t\t\t\t\tListeSpielerTextArea.setBackground(Color.white);\r\n\r\n\t\t\t\t\tListeSpielerTextArea.setFont(ListeSpielerTextArea.getFont().deriveFont(Font.BOLD));\r\n\t\t\t\t\tSpielStartenButton.setVisible(true);\r\n\r\n\r\n\r\n\t\t\t\t\tSystem.out.println(\" - \" + spielerName);\r\n\r\n\t\t\t\t\tSpielStartenButton.setVisible(true);\r\n\r\n\r\n\t\t\t\t}\r\n\t\t\t\telse{\r\n\t\t\t\t\tJOptionPane.showMessageDialog(null, \"Spielername darf nicht leer sein\");\r\n\t\t\t\t}\r\n\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tSpielStartenButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\r\n\t\t\t\tdispose();\r\n\t\t\t\tRunde runde = new Runde();\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t}\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tnew Dart();\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java	(revision 9f770ee38b68bf1044810ffb61ed00e761282107)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java	(date 1736510349555)
+@@ -16,11 +16,11 @@
+ 	private JLabel SpielLabel;
+ 	private JButton NeuesSpielButton;
+ 	private JButton SpielStartenButton;
+-	private JTextField SpielerListetextField;
++
+ 	private JLabel RundeLabel;
+ 
+ 
+-	//Liste der Spieler
++	//Speichert die Spielernamen in einer arraylist
+ 
+ 	ArrayList<Spiel>  spielerListe;
+ 
+@@ -32,6 +32,9 @@
+ 		setSize(250,400);
+ 		setContentPane(DartPanel);
+ 		SpielStartenButton.setVisible(false);
++		SpielerhinzufuegenButton.setVisible(false);
++		SpielerLabel.setVisible(false);
++		ListeSpielerTextArea.setVisible(false);
+ 		setVisible(true);
+ 
+ 
+@@ -48,7 +51,7 @@
+ 				//macht spieler hinzufügen button und liste + andere sachen möglich
+ 				SpielerLabel.setVisible(true);
+ 				SpielerhinzufuegenButton.setVisible(true);
+-				ListeSpielerTextArea.setVisible(false);
++
+ 
+ 			}
+ 		});
+@@ -56,12 +59,13 @@
+ 		SpielerhinzufuegenButton.addActionListener(new ActionListener() {
+ 			@Override
+ 			public void actionPerformed(ActionEvent e) {
+-				setTitle("Spiel 1");
++				setTitle("Spiel");
+ 
+ 				String spielerName = JOptionPane.showInputDialog("Name des Spielers");
+ 
+ 				if(spielerName != null && !spielerName.trim().isEmpty()) {
+ 
++					//FIX ZU ERLEDIGEN: neues spiel macht keinen wenns jedes mal passiert wenn ein neuer spieler hinzugefügt wird
+ 
+ 					//erstellen neues spielobjekt mit input namen
+ 					Spiel neuesSpiel = new Spiel(301, spielerName);
+@@ -77,13 +81,13 @@
+ 
+ 					ListeSpielerTextArea.append("- " + spielerName + "\n");
+ 
+-					ListeSpielerTextArea.setBackground(Color.white);
++					ListeSpielerTextArea.setBackground(Color.green);
+ 
+ 					ListeSpielerTextArea.setFont(ListeSpielerTextArea.getFont().deriveFont(Font.BOLD));
+ 					SpielStartenButton.setVisible(true);
+ 
+ 
+-
++					//debug
+ 					System.out.println(" - " + spielerName);
+ 
+ 					SpielStartenButton.setVisible(true);
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Projektarbeit2025;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class Runde extends JFrame {\r\n\tprivate JLabel RundeLabel;\r\n\tprivate JPanel RundePanel;\r\n\tprivate JList testList;\r\n\r\n\tpublic Runde(){\r\n\t\t// erstellt fenster\r\n\t\tsetTitle(\"Runde\");\r\n\t\tsetDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\t\tsetSize(250,400);\r\n\t\tsetContentPane(RundePanel);\r\n\t\tsetVisible(true);\r\n\r\n\t\t//testList.get\r\n\r\n\t}\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tnew Runde();\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.java b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.java
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.java	(revision 9f770ee38b68bf1044810ffb61ed00e761282107)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.java	(date 1736613548501)
+@@ -1,11 +1,13 @@
+ package Projektarbeit2025;
+ 
+ import javax.swing.*;
++import java.awt.event.FocusEvent;
++import java.awt.event.FocusListener;
+ 
+ public class Runde extends JFrame {
+ 	private JLabel RundeLabel;
+ 	private JPanel RundePanel;
+-	private JList testList;
++	private JTextField spieler1textfield;
+ 
+ 	public Runde(){
+ 		// erstellt fenster
+@@ -15,9 +17,31 @@
+ 		setContentPane(RundePanel);
+ 		setVisible(true);
+ 
+-		//testList.get
++
++		String placeholder = "spieler 1";
++		spieler1textfield.setText(placeholder);
+ 
++
++		spieler1textfield.addFocusListener(new FocusListener() {
++			@Override
++			public void focusGained(FocusEvent e) {
++				if(spieler1textfield.getText().equals(placeholder)){
++					spieler1textfield.setText("Spieler 1");
++					spieler1textfield.setForeground(java.awt.Color.BLACK);
++				}
++			}
++
++			@Override
++			public void focusLost(FocusEvent e) {
++				if(spieler1textfield.getText().isEmpty()){
++					spieler1textfield.setText(placeholder);
++					spieler1textfield.setForeground(java.awt.Color.GRAY);
++				}
++			}
++		});
++
+ 	}
++
+ 
+ 	public static void main(String[] args) {
+ 		new Runde();
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<form xmlns=\"http://www.intellij.com/uidesigner/form/\" version=\"1\" bind-to-class=\"Projektarbeit2025.Dart\">\r\n  <grid id=\"27dc6\" binding=\"DartPanel\" layout-manager=\"GridLayoutManager\" row-count=\"8\" column-count=\"19\" same-size-horizontally=\"false\" same-size-vertically=\"false\" hgap=\"-1\" vgap=\"-1\">\r\n    <margin top=\"0\" left=\"0\" bottom=\"0\" right=\"0\"/>\r\n    <constraints>\r\n      <xy x=\"20\" y=\"13\" width=\"559\" height=\"474\"/>\r\n    </constraints>\r\n    <properties>\r\n      <background color=\"-1\"/>\r\n    </properties>\r\n    <border type=\"none\"/>\r\n    <children>\r\n      <hspacer id=\"3ff5\">\r\n        <constraints>\r\n          <grid row=\"0\" column=\"8\" row-span=\"1\" col-span=\"11\" vsize-policy=\"1\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </hspacer>\r\n      <component id=\"83b0f\" class=\"javax.swing.JLabel\" binding=\"SpielerLabel\">\r\n        <constraints>\r\n          <grid row=\"2\" column=\"0\" row-span=\"6\" col-span=\"8\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"9\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <alignmentX value=\"0.5\"/>\r\n          <name value=\"\"/>\r\n          <text value=\"Spieler:\"/>\r\n          <visible value=\"false\"/>\r\n        </properties>\r\n      </component>\r\n      <vspacer id=\"277bd\">\r\n        <constraints>\r\n          <grid row=\"2\" column=\"18\" row-span=\"6\" col-span=\"1\" vsize-policy=\"6\" hsize-policy=\"1\" anchor=\"0\" fill=\"2\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </vspacer>\r\n      <component id=\"81faf\" class=\"javax.swing.JButton\" binding=\"SpielerhinzufuegenButton\">\r\n        <constraints>\r\n          <grid row=\"2\" column=\"8\" row-span=\"1\" col-span=\"10\" vsize-policy=\"0\" hsize-policy=\"3\" anchor=\"8\" fill=\"0\" indent=\"1\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <alignmentX value=\"1.0\"/>\r\n          <horizontalTextPosition value=\"0\"/>\r\n          <text value=\"+\"/>\r\n          <visible value=\"false\"/>\r\n        </properties>\r\n      </component>\r\n      <component id=\"31f9a\" class=\"javax.swing.JTextArea\" binding=\"ListeSpielerTextArea\">\r\n        <constraints>\r\n          <grid row=\"4\" column=\"8\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"7\" anchor=\"9\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\">\r\n            <preferred-size width=\"75\" height=\"50\"/>\r\n          </grid>\r\n        </constraints>\r\n        <properties>\r\n          <autoscrolls value=\"true\"/>\r\n          <caretColor color=\"-13947600\"/>\r\n          <disabledTextColor color=\"-13947600\"/>\r\n          <editable value=\"false\"/>\r\n          <foreground color=\"-13947600\"/>\r\n          <selectedTextColor color=\"-13947600\"/>\r\n          <selectionColor color=\"-13947600\"/>\r\n          <verifyInputWhenFocusTarget value=\"true\"/>\r\n          <visible value=\"false\"/>\r\n        </properties>\r\n      </component>\r\n      <vspacer id=\"2a29d\">\r\n        <constraints>\r\n          <grid row=\"5\" column=\"8\" row-span=\"2\" col-span=\"8\" vsize-policy=\"6\" hsize-policy=\"1\" anchor=\"0\" fill=\"2\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </vspacer>\r\n      <component id=\"9d546\" class=\"javax.swing.JLabel\" binding=\"SpielLabel\">\r\n        <constraints>\r\n          <grid row=\"0\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"8\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <text value=\"Spiel \"/>\r\n          <visible value=\"false\"/>\r\n        </properties>\r\n      </component>\r\n      <component id=\"4cdc3\" class=\"javax.swing.JButton\" binding=\"NeuesSpielButton\">\r\n        <constraints>\r\n          <grid row=\"1\" column=\"1\" row-span=\"1\" col-span=\"2\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"1\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <text value=\"NeuesSpiel\"/>\r\n          <visible value=\"true\"/>\r\n        </properties>\r\n      </component>\r\n      <hspacer id=\"1f902\">\r\n        <constraints>\r\n          <grid row=\"5\" column=\"17\" row-span=\"1\" col-span=\"1\" vsize-policy=\"1\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </hspacer>\r\n      <hspacer id=\"3d760\">\r\n        <constraints>\r\n          <grid row=\"5\" column=\"16\" row-span=\"2\" col-span=\"1\" vsize-policy=\"1\" hsize-policy=\"6\" anchor=\"0\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </hspacer>\r\n      <component id=\"7fea1\" class=\"javax.swing.JButton\" binding=\"SpielStartenButton\">\r\n        <constraints>\r\n          <grid row=\"6\" column=\"17\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"3\" anchor=\"0\" fill=\"1\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <text value=\"Spiel Starten\"/>\r\n        </properties>\r\n      </component>\r\n    </children>\r\n  </grid>\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form	(revision 9f770ee38b68bf1044810ffb61ed00e761282107)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.form	(date 1736508810055)
+@@ -103,4 +103,4 @@
+       </component>
+     </children>
+   </grid>
+-</form>
++</form>
+\ No newline at end of file
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.form
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<form xmlns=\"http://www.intellij.com/uidesigner/form/\" version=\"1\" bind-to-class=\"Projektarbeit2025.Runde\">\r\n  <grid id=\"27dc6\" binding=\"RundePanel\" layout-manager=\"GridLayoutManager\" row-count=\"1\" column-count=\"3\" same-size-horizontally=\"false\" same-size-vertically=\"false\" hgap=\"-1\" vgap=\"-1\">\r\n    <margin top=\"0\" left=\"0\" bottom=\"0\" right=\"0\"/>\r\n    <constraints>\r\n      <xy x=\"20\" y=\"20\" width=\"500\" height=\"400\"/>\r\n    </constraints>\r\n    <properties/>\r\n    <border type=\"none\"/>\r\n    <children>\r\n      <component id=\"2ae95\" class=\"javax.swing.JLabel\" binding=\"RundeLabel\">\r\n        <constraints>\r\n          <grid row=\"0\" column=\"0\" row-span=\"1\" col-span=\"1\" vsize-policy=\"0\" hsize-policy=\"0\" anchor=\"9\" fill=\"0\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n        <properties>\r\n          <text value=\"Runde\"/>\r\n        </properties>\r\n      </component>\r\n      <vspacer id=\"332f1\">\r\n        <constraints>\r\n          <grid row=\"0\" column=\"2\" row-span=\"1\" col-span=\"1\" vsize-policy=\"6\" hsize-policy=\"1\" anchor=\"0\" fill=\"2\" indent=\"0\" use-parent-layout=\"false\"/>\r\n        </constraints>\r\n      </vspacer>\r\n      <component id=\"7dcd4\" class=\"javax.swing.JList\" binding=\"testList\">\r\n        <constraints>\r\n          <grid row=\"0\" column=\"1\" row-span=\"1\" col-span=\"1\" vsize-policy=\"6\" hsize-policy=\"2\" anchor=\"0\" fill=\"3\" indent=\"0\" use-parent-layout=\"false\">\r\n            <preferred-size width=\"150\" height=\"50\"/>\r\n          </grid>\r\n        </constraints>\r\n        <properties/>\r\n      </component>\r\n    </children>\r\n  </grid>\r\n</form>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.form b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.form
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.form	(revision 9f770ee38b68bf1044810ffb61ed00e761282107)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Runde.form	(date 1736510984389)
+@@ -21,13 +21,15 @@
+           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+         </constraints>
+       </vspacer>
+-      <component id="7dcd4" class="javax.swing.JList" binding="testList">
++      <component id="c417e" class="javax.swing.JTextField" binding="spieler1textfield">
+         <constraints>
+-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+-            <preferred-size width="150" height="50"/>
++          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
++            <preferred-size width="150" height="-1"/>
+           </grid>
+         </constraints>
+-        <properties/>
++        <properties>
++          <text value=""/>
++        </properties>
+       </component>
+     </children>
+   </grid>

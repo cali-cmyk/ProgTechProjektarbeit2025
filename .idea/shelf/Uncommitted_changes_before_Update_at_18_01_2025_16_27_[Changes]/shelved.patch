@@ -1,0 +1,67 @@
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spiel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spiel.java b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spieler.java
+rename from ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spiel.java
+rename to ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spieler.java
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spiel.java	(revision a96cdab9d5786f977e3e00f6a73a6ca37f63f653)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Spieler.java	(date 1737213849018)
+@@ -1,13 +1,13 @@
+ package Projektarbeit2025;
+ 
+-public class Spiel {
++public class Spieler {
+ 
+ 	//Attribute
+ 	private int punkte;
+ 	private String name;
+ 
+ 	//Konstruktor
+-	public Spiel(int punkte, String name) {
++	public Spieler(int punkte, String name) {
+ 		this.punkte = 0;
+ 		this.name = name;
+ 	}
+Index: ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Projektarbeit2025;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.util.ArrayList;\r\n\r\npublic class Dart extends JFrame {\r\n\tprivate JButton NeuesSpielbutton;\r\n\r\n\tprivate JPanel DartPanel;\r\n\tprivate JLabel SpielerLabel;\r\n\tprivate JButton SpielerhinzufuegenButton;\r\n\tprivate JTextArea ListeSpielerTextArea;\r\n\tprivate JLabel SpielLabel;\r\n\tprivate JButton NeuesSpielButton;\r\n\tprivate JButton SpielStartenButton;\r\n\tprivate JTextField SpielerListetextField;\r\n\tprivate JLabel RundeLabel;\r\n\r\n\r\n\t//Liste der Spieler\r\n\r\n\tArrayList<Spiel>  spielerListe;\r\n\r\n\r\n\tpublic Dart(){\r\n\t\t// erstellt fenster\r\n\t\tsetTitle(\"Dart\");\r\n\t\tsetDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);\r\n\t\tsetSize(250,400);\r\n\t\tsetContentPane(DartPanel);\r\n\t\tSpielStartenButton.setVisible(false);\r\n\t\tsetVisible(true);\r\n\r\n\r\n\r\n\t\tspielerListe = new ArrayList<>();\r\n\r\n\r\n\r\n\t\tNeuesSpielButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\t\t\t\t//lässt NeuesSpielbutton verschwinden\r\n\t\t\t\tNeuesSpielButton.setVisible(false);\r\n\t\t\t\t//macht spieler hinzufügen button und liste + andere sachen möglich\r\n\t\t\t\tSpielerLabel.setVisible(true);\r\n\t\t\t\tSpielerhinzufuegenButton.setVisible(true);\r\n\t\t\t\tListeSpielerTextArea.setVisible(false);\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tSpielerhinzufuegenButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\t\t\t\tsetTitle(\"Spiel 1\");\r\n\r\n\t\t\t\tString spielerName = JOptionPane.showInputDialog(\"Name des Spielers\");\r\n\r\n\t\t\t\tif(spielerName != null && !spielerName.trim().isEmpty()) {\r\n\r\n\r\n\t\t\t\t\t//erstellen neues spielobjekt mit input namen\r\n\t\t\t\t\tSpiel neuesSpiel = new Spiel(301, spielerName);\r\n\r\n\t\t\t\t\t//spielobjekt wird der spielerliste hinzugefügt\r\n\r\n\t\t\t\t\tspielerListe.add(neuesSpiel);\r\n\r\n\t\t\t\t\t//spielerhinzufuegen button & spielerlistetexfield werden sichtbar gesetzt\r\n\r\n\t\t\t\t\tSpielerhinzufuegenButton.setVisible(true);\r\n\t\t\t\t\tListeSpielerTextArea.setVisible(true);\r\n\r\n\t\t\t\t\tListeSpielerTextArea.append(\"- \" + spielerName + \"\\n\");\r\n\r\n\t\t\t\t\tListeSpielerTextArea.setBackground(Color.white);\r\n\r\n\t\t\t\t\tListeSpielerTextArea.setFont(ListeSpielerTextArea.getFont().deriveFont(Font.BOLD));\r\n\t\t\t\t\tSpielStartenButton.setVisible(true);\r\n\r\n\r\n\r\n\t\t\t\t\tSystem.out.println(\" - \" + spielerName);\r\n\r\n\t\t\t\t\tSpielStartenButton.setVisible(true);\r\n\r\n\r\n\t\t\t\t}\r\n\t\t\t\telse{\r\n\t\t\t\t\tJOptionPane.showMessageDialog(null, \"Spielername darf nicht leer sein\");\r\n\t\t\t\t}\r\n\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t\tSpielStartenButton.addActionListener(new ActionListener() {\r\n\t\t\t@Override\r\n\t\t\tpublic void actionPerformed(ActionEvent e) {\r\n\r\n\t\t\t\tdispose();\r\n\t\t\t\tRunde runde = new Runde();\r\n\r\n\t\t\t}\r\n\t\t});\r\n\r\n\t}\r\n\r\n\tpublic static void main(String[] args) {\r\n\t\tnew Dart();\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java
+--- a/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java	(revision a96cdab9d5786f977e3e00f6a73a6ca37f63f653)
++++ b/ProgTechProjektarbeit2025/src/main/java/Projektarbeit2025/Dart.java	(date 1737214052009)
+@@ -8,7 +8,6 @@
+ 
+ public class Dart extends JFrame {
+ 	private JButton NeuesSpielbutton;
+-
+ 	private JPanel DartPanel;
+ 	private JLabel SpielerLabel;
+ 	private JButton SpielerhinzufuegenButton;
+@@ -22,7 +21,7 @@
+ 
+ 	//Liste der Spieler
+ 
+-	ArrayList<Spiel>  spielerListe;
++	ArrayList<Spieler>  spielerListe;
+ 
+ 
+ 	public Dart(){
+@@ -64,11 +63,11 @@
+ 
+ 
+ 					//erstellen neues spielobjekt mit input namen
+-					Spiel neuesSpiel = new Spiel(301, spielerName);
++					Spieler neuerSpieler = new Spieler(301, spielerName);
+ 
+ 					//spielobjekt wird der spielerliste hinzugefügt
+ 
+-					spielerListe.add(neuesSpiel);
++					spielerListe.add(neuerSpieler);
+ 
+ 					//spielerhinzufuegen button & spielerlistetexfield werden sichtbar gesetzt
+ 
