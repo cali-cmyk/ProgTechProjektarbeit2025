@@ -1,9 +1,23 @@
 package Dart;
 
-public class SpielerRunde {
+import javax.swing.*;
+
+public class SpielerRunde extends JFrame{
+
     //Attribute
     private Spieler derzeitigerSpieler;
     private int punkte;
+
+    private JTextField textFieldSpieler;
+    private JLabel labelSpieler;
+    private JTextField textFieldPunkte;
+    private JLabel labelPunkte;
+    private JButton buttonVerdreifachen;
+    private JButton buttonVerzweifachen;
+    private JTextField textFieldStatus;
+    private JButton buttonSpielAbbrechen;
+    private JButton buttonNaechster;
+    private JLabel labelStatus;
 
     //Methoden
     public String getDerzeitigerSpieler() {

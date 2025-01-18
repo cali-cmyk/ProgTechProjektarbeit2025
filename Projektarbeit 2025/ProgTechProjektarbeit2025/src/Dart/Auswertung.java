@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class Auswertung extends JFrame {
 
+    //Attribute
     private JLabel labelDartAuswertung;
     private JLabel labelGewonnen;
     private JTextField textFieldGewonnen;
