@@ -1,11 +1,12 @@
 package Dart;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class SpielerRunde extends JFrame{
 
     //Attribute
-    private Spieler derzeitigerSpieler;
+    private Spieler derzeitigerSpieler = Spiel.getSpielerListe().getFirst();
     private int punkte;
 
     private JTextField textFieldSpieler;
@@ -18,49 +19,68 @@ public class SpielerRunde extends JFrame{
     private JButton buttonSpielAbbrechen;
     private JButton buttonNaechster;
     private JLabel labelStatus;
+    private JPanel panelSpielerRunde;
+
+    //Konstruktor
+    public SpielerRunde(){
+        setTitle("Dart");
+        setSize(300,300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
 
     //Methoden
-    public String getDerzeitigerSpieler() {
+    public Spieler getDerzeitigerSpieler(){
         return derzeitigerSpieler;
     }
 
-    public void setDerzeitigerSpieler(Spieler derzeitigerSpieler) {
+    public void setDerzeitigerSpieler(Spieler derzeitigerSpieler){
         this.derzeitigerSpieler = derzeitigerSpieler;
     }
 
-    public int getPunkte() {
+    public int getPunkte(){
         return punkte;
     }
 
-    public void setPunkte(int punkte) {
+    public void setPunkte(int punkte){
         this.punkte = punkte;
     }
 
-    public boolean pruefeGewonnen() {
-        return;
+    public boolean pruefeGewonnen(){
+
+        int gewinnPunkte = Spieler.getGewinnPunkte();
+        if(gewinnPunkte == 0){
+            new Auswertung();
+        }
+        return false;
     }
 
-    public void wechselNaechsterspieler() {
-
+    public void wechselNaechsterspieler(){
+        ArrayList <Spieler> spielerListe = Spiel.getSpielerListe();
+        setDerzeitigerSpieler(spielerListe.iterator().next());   //derzeitiger Spieler wird auf nächsten Spieler in der spielerListe gesetzt
     }
 
-    public void verdoppelPunkte() {
-
+    public void verdoppelPunkte(){
+        punkte = punkte*2;
     }
 
-    public void verdreifachePunkte() {
-
+    public void verdreifachePunkte(){
+        punkte = punkte*3;
     }
 
     public int statusGewinnPunkte(){
-        return;
+        return Spieler.getGewinnPunkte();
     }
 
     public void verringereGewinnPunkte(){
-
+        int gewinnPunkte;
+        gewinnPunkte = Spieler.getGewinnPunkte() - getPunkte();
+        Spieler.setGewinnPunkte(gewinnPunkte);
     }
 
     public void direktZurAuswertung(){
-
+        dispose();
+        new Auswertung();
     }
+
 }
