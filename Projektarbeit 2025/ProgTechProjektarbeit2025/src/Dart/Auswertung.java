@@ -29,10 +29,11 @@ public class Auswertung extends JFrame {
         setSize(300,300);
         setContentPane(panelAuswertung);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
         listPunkteListe.setBackground(Color.white);
         listPunkteListe.setForeground(Color.black);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        initAuswertung();
 
         //Interaktive Elemente
         buttonAufsteigendSortieren.addActionListener(new ActionListener() {
@@ -52,12 +53,17 @@ public class Auswertung extends JFrame {
         buttonBeenden.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Spiel.spielBeenden();
+                spielBeenden();
             }
         });
     }
 
     //Methoden---------------------------------------------------
+    public void initAuswertung(){
+        textFieldGewonnen.setText(String.valueOf(gewonnenerSpieler().getGewinnPunkte()));
+        textFieldPunktedurchschnitt.setText(String.valueOf(berechneDurchschnitt()));
+    }
+
     public double berechneDurchschnitt() {
         ArrayList<Integer> punkteListe = Spiel.getPunkteListe();
         if (punkteListe.isEmpty()) {
@@ -100,4 +106,9 @@ public class Auswertung extends JFrame {
         }
         return gewinner;
     }
+
+    public void spielBeenden(){
+        System.exit(0);	//close Operation die das Auswertung Fenster schließt ohne das etwas gespeichert wird
+    }
+
 }

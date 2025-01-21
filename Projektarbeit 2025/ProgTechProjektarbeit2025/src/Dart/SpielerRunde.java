@@ -32,6 +32,7 @@ public class SpielerRunde extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        initSpielerRunde();
 
         //Interaktive Elemente
         buttonVerzweifachen.addActionListener(new ActionListener() {
@@ -58,7 +59,7 @@ public class SpielerRunde extends JFrame{
                 verringereGewinnPunkte();
                 pruefeGewonnen();
                 wechselNaechsterspieler();
-                initialisiereSpielerRunde();    //beim wechsel auf den nächsten Spieler wird ebenfalls das Fenster geupdated
+                initSpielerRunde();    //beim wechsel auf den nächsten Spieler wird ebenfalls das Fenster geupdated
             }
         });
 
@@ -71,11 +72,11 @@ public class SpielerRunde extends JFrame{
     }
 
     //Methoden-----------------------------------------------
-    public Spieler getDerzeitigerSpieler(){
+    public Spieler getDerzeitigerSpieler() {
         return derzeitigerSpieler;
     }
 
-    public void initialisiereSpielerRunde() {    //eine Methode die beim aufrufen des SpielerRunde Objekts ausgeführt wird
+    public void initSpielerRunde() {    //eine Methode die beim aufrufen des SpielerRunde Objekts ausgeführt wird
         textFieldSpieler.setText(derzeitigerSpieler.getName());     //trägt den Namen des derzeitigen Spielers in das Textfeld ein (editable unchecked)
         textFieldStatus.setText(String.valueOf(statusGewinnPunkte()));  //konvertierung des int aus statusGewinnPunkte() in einen String der im textFieldStatus benutzt werden kann (editable unchecked)
         textFieldPunkte.setText("");    //folgende Methode cleart textFieldPunkte um einen neuen Eintrag zu ermöglichen

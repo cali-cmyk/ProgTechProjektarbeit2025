@@ -16,10 +16,6 @@ public class Spieler {
         return name;
     }
 
-    public void setName(String name){
-        this.name = name;       //wenn Konstruktor ohne GewinnPunkte ist diese Methode redundant
-    }
-
     public int getGewinnPunkte(){
         return gewinnPunkte;
     }

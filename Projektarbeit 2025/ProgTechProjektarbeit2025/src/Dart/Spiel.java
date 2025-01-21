@@ -71,11 +71,6 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 	public void spielStarten(){
 		dispose();	//derzeitiges Fenster wird geschlossen
 		new SpielerRunde();	//Das Fenster SpielerRunde wird geöffnet
-		SpielerRunde.initialisiereSpielerRunde();
-	}
-
-	public void spielBeenden(){
-		System.exit(0);	//close Operation die das Auswertung Fenster schließt ohne das etwas gespeichert wird
 	}
 
 	public static void main(String[] args) {
