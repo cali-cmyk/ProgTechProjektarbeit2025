@@ -4,7 +4,7 @@ public class Spieler {
 
     //Attribute
     private String name;
-    private int gewinnPunkte = 301;
+    private static int gewinnPunkte = 301;
 
     //Konstruktor
     public Spieler(String name){     //wenn Spieler Objekte erstellt werden dann ist GewinnPunkte fix, hat also keinen Nutzen hier
@@ -16,11 +16,11 @@ public class Spieler {
         return name;
     }
 
-    public int getGewinnPunkte(){
+    public static int getGewinnPunkte(){
         return gewinnPunkte;
     }
 
-    public void setGewinnPunkte(int gewinnPunkte) {
-        this.gewinnPunkte = gewinnPunkte;
+    public static void setGewinnPunkte(int gewinnPunkte) {
+        Spieler.gewinnPunkte = gewinnPunkte;
     }
 }

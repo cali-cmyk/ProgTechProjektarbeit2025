@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Klasse main
 
 	//Attribute
-	private ArrayList<Spieler> spielerListe = new ArrayList<>();
-	private ArrayList<Integer> punkteListe = new ArrayList<>();
+	private static ArrayList<Spieler> spielerListe = new ArrayList<>();
+	private static ArrayList<Integer> punkteListe = new ArrayList<>();
 	private JPanel panelSpiel;
 	private JLabel SpielerLabel;
 	private JButton plusButton;
@@ -56,15 +56,15 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 		spielerListe.add(spieler);
 	}
 
-	public ArrayList<Spieler> getSpielerListe() {
+	public static ArrayList<Spieler> getSpielerListe() {
 		return spielerListe;
 	}
 
-	public void addPunkte(int punkte){
+	public static void addPunkte(int punkte){
 		punkteListe.add(punkte);
 	}
 
-	public ArrayList<Integer> getPunkteListe() {
+	public static ArrayList<Integer> getPunkteListe() {
 		return punkteListe;
 	}
 
