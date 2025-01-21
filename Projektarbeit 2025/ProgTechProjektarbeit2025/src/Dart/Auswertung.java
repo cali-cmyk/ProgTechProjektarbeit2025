@@ -2,6 +2,8 @@ package Dart;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;   //Klasse zum sortieren von ArrayListen
@@ -23,10 +25,35 @@ public class Auswertung extends JFrame {
 
     //Konstruktor
     public Auswertung(){
-        setTitle("Dart");
+        setTitle("Auswertung");
         setSize(300,300);
+        setContentPane(panelAuswertung);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
+        listPunkteListe.setBackground(Color.white);
+        listPunkteListe.setForeground(Color.black);
+
+        buttonAufsteigendSortierenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        buttonAbsteigendSortierenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        buttonBeenden.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     //Methoden

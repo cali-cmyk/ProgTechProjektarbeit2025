@@ -2,6 +2,8 @@ package Dart;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Klasse main
@@ -18,12 +20,32 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 
 	//Konstruktor
 	public Spiel(){
+
+		//GUI Einstellungen
 		setTitle("Dart");
 		setSize(300,300);
 		setContentPane(panelSpiel);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);	//lässt das Fenster mittig vom Bildschirm erscheinen
 		setVisible(true);
 		SpielerListeJList.setBackground(Color.white);
+		SpielerListeJList.setForeground(Color.black);
+
+		plusButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String spieler = JOptionPane.showInputDialog(null,"Namen: ","Eingabe",JOptionPane.QUESTION_MESSAGE);
+				addSpieler(new Spieler(spieler));	//Spieler Objekt wird erstellt und zur Liste spielerListe hinzugefügt
+				SpielerListeJList.setListData(spielerListe.toArray());	//!!Versuch SpielerListeJList die Werte von spielerListe hinzuzufügen!!
+			}
+		});
+
+		NeuesSpielButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				spielStarten();
+			}
+		});
 	}
 
 	//Methoden
@@ -43,18 +65,18 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 		return punkteListe;
 	}
 
-	public void SpielStarten(){
+	public void spielStarten(){
 		dispose();	//derzeitiges Fenster wird geschlossen
 		new SpielerRunde();	//Das Fenster SpielerRunde wird geöffnet
+		SpielerRunde.initialisiereSpielerRunde();
 	}
 
-	public void SpielBeenden(){
-		dispose();
-		//close Operation die das Auswertung Fenster schließt ohne das etwas gespeichert wird (reset)
+	public void spielBeenden(){
+		System.exit(0);	//close Operation die das Auswertung Fenster schließt ohne das etwas gespeichert wird
 	}
 
 	public static void main(String[] args) {
-		new Spiel();	//Das Startfenster Spiel wird geöffnet
+		new Spiel();	//Das Startfenster Spiel wird geöffnet und ein neues Opbjekt Spiel wird erstellt
 	}
 
 

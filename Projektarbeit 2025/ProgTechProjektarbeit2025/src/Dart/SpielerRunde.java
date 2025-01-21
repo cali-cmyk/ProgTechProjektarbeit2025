@@ -1,6 +1,8 @@
 package Dart;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SpielerRunde extends JFrame{
@@ -23,15 +25,56 @@ public class SpielerRunde extends JFrame{
 
     //Konstruktor
     public SpielerRunde(){
-        setTitle("Dart");
+        setTitle("Runde");
         setSize(300,300);
+        setContentPane(panelSpielerRunde);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
+
+        buttonVerzweifachen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verdoppelPunkte();
+            }
+        });
+
+        buttonVerdreifachen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verdreifachePunkte();
+            }
+        });
+
+
+        buttonNaechster.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                verringereGewinnPunkte();
+                pruefeGewonnen();
+                wechselNaechsterspieler();
+                initialisiereSpielerRunde();    //beim wechsel auf den nächsten Spieler wird ebenfalls das Fenster geupdated
+            }
+        });
+
+        buttonSpielAbbrechen.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                direktZurAuswertung();
+            }
+        });
     }
 
     //Methoden
     public Spieler getDerzeitigerSpieler(){
         return derzeitigerSpieler;
+    }
+
+    public void initialisiereSpielerRunde() {    //eine Methode die beim aufrufen des SpielerRunde Objekts ausgeführt wird
+        textFieldSpieler.setText(derzeitigerSpieler.getName());     //trägt den Namen des derzeitigen Spielers in das Textfeld ein (editable unchecked)
+        textFieldStatus.setText(String.valueOf(statusGewinnPunkte()));  //konvertierung des int aus statusGewinnPunkte() in einen String der im textFieldStatus benutzt werden kann (editable unchecked)
+        textFieldPunkte.setText("");    //folgende Methode cleart textFieldPunkte um einen neuen Eintrag zu ermöglichen
+        setPunkte(0);     //punkte werden nach Eintrag wieder auf 0 gesetzt
     }
 
     public void setDerzeitigerSpieler(Spieler derzeitigerSpieler){
@@ -55,9 +98,15 @@ public class SpielerRunde extends JFrame{
         return false;
     }
 
-    public void wechselNaechsterspieler(){
-        ArrayList <Spieler> spielerListe = Spiel.getSpielerListe();
-        setDerzeitigerSpieler(spielerListe.iterator().next());   //derzeitiger Spieler wird auf nächsten Spieler in der spielerListe gesetzt
+    public void wechselNaechsterspieler(){      //!!Problem: es muss nicht nur SpielerName sondern auch die zum Spieler passenden gewinnPunkte gespeichert werden
+        ArrayList<Spieler> spielerListe = Spiel.getSpielerListe();
+        int derzeitigerIndex = spielerListe.indexOf(getDerzeitigerSpieler());
+        if (derzeitigerIndex == spielerListe.size() - 1) {      //wenn der letzte Index(AnzahlIndexe-1, da von 0 gezählt) erreicht wurde dann:
+            setDerzeitigerSpieler(spielerListe.getFirst());     //reset auf den ersten Spieler, also wechsel vom letzten
+        } else {
+            setDerzeitigerSpieler(spielerListe.get(derzeitigerIndex + 1));  //derzeitigerIndex wird auf den nächsten Spieler gerichtet, also wechselt
+        }
+
     }
 
     public void verdoppelPunkte(){
@@ -73,9 +122,15 @@ public class SpielerRunde extends JFrame{
     }
 
     public void verringereGewinnPunkte(){
-        int gewinnPunkte;
-        gewinnPunkte = Spieler.getGewinnPunkte() - getPunkte();
-        Spieler.setGewinnPunkte(gewinnPunkte);
+        try {
+            int gewinnPunkte = Spieler.getGewinnPunkte() - getPunkte();
+            if (gewinnPunkte < 0) {
+                throw new Exception("Die Punkte zum gewinnen dürfen nicht unter 0 kommen!");
+            }
+            Spieler.setGewinnPunkte(gewinnPunkte);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Folgender Fehler ist aufgetreten: " + e.getMessage(), "Fehler", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void direktZurAuswertung(){
