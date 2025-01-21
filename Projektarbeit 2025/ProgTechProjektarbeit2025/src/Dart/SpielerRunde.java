@@ -23,8 +23,9 @@ public class SpielerRunde extends JFrame{
     private JLabel labelStatus;
     private JPanel panelSpielerRunde;
 
-    //Konstruktor
     public SpielerRunde(){
+
+        //GUI Einstellungen
         setTitle("Runde");
         setSize(300,300);
         setContentPane(panelSpielerRunde);
@@ -32,6 +33,7 @@ public class SpielerRunde extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
 
+        //Interaktive Elemente
         buttonVerzweifachen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,6 +52,9 @@ public class SpielerRunde extends JFrame{
         buttonNaechster.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int punkte = Integer.parseInt(textFieldPunkte.getText());
+                setPunkte(punkte);
+                Spiel.addPunkte(getPunkte());
                 verringereGewinnPunkte();
                 pruefeGewonnen();
                 wechselNaechsterspieler();
@@ -65,7 +70,7 @@ public class SpielerRunde extends JFrame{
         });
     }
 
-    //Methoden
+    //Methoden-----------------------------------------------
     public Spieler getDerzeitigerSpieler(){
         return derzeitigerSpieler;
     }
@@ -90,17 +95,19 @@ public class SpielerRunde extends JFrame{
     }
 
     public boolean pruefeGewonnen(){
-
-        int gewinnPunkte = Spieler.getGewinnPunkte();
+        int gewinnPunkte = Spieler.getGewinnPunkte();   //Überlegung: Spieler auf derzeitigerSpieler setzen
         if(gewinnPunkte == 0){
             new Auswertung();
         }
         return false;
     }
 
-    public void wechselNaechsterspieler(){      //!!Problem: es muss nicht nur SpielerName sondern auch die zum Spieler passenden gewinnPunkte gespeichert werden
+    //!!Problem: es muss nicht nur SpielerName sondern auch die zum Spieler passenden gewinnPunkte gespeichert werden
+    //Überlegung: derzeitigerSpieler.setGewinnPunkte(statusGewinnPunkte());
+    public void wechselNaechsterspieler(){
         ArrayList<Spieler> spielerListe = Spiel.getSpielerListe();
         int derzeitigerIndex = spielerListe.indexOf(getDerzeitigerSpieler());
+
         if (derzeitigerIndex == spielerListe.size() - 1) {      //wenn der letzte Index(AnzahlIndexe-1, da von 0 gezählt) erreicht wurde dann:
             setDerzeitigerSpieler(spielerListe.getFirst());     //reset auf den ersten Spieler, also wechsel vom letzten
         } else {

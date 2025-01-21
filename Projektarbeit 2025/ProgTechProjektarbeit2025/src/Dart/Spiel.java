@@ -15,10 +15,9 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 	private JLabel SpielerLabel;
 	private JButton plusButton;
 	private JLabel dartSpielLabel;
-	private JList SpielerListeJList;
+	private JList<Spieler> SpielerListeJList;
 	private JButton NeuesSpielButton;
 
-	//Konstruktor
 	public Spiel(){
 
 		//GUI Einstellungen
@@ -31,12 +30,16 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 		SpielerListeJList.setBackground(Color.white);
 		SpielerListeJList.setForeground(Color.black);
 
+		//Interaktive Elemente
 		plusButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String spieler = JOptionPane.showInputDialog(null,"Namen: ","Eingabe",JOptionPane.QUESTION_MESSAGE);
-				addSpieler(new Spieler(spieler));	//Spieler Objekt wird erstellt und zur Liste spielerListe hinzugefügt
-				SpielerListeJList.setListData(spielerListe.toArray());	//!!Versuch SpielerListeJList die Werte von spielerListe hinzuzufügen!!
+				String spieler = JOptionPane.showInputDialog(null,"Namen: ","Spielereingabe",JOptionPane.QUESTION_MESSAGE);
+				if ( spieler != null){
+					addSpieler(new Spieler(spieler));	//Spieler Objekt wird erstellt und zur Liste spielerListe hinzugefügt
+					Spieler[] updatedSpielerListe = spielerListe.toArray(new Spieler[0]);
+					SpielerListeJList.setListData(updatedSpielerListe);		//setListData aktualisiert die Ansicht
+				}
 			}
 		});
 
@@ -48,7 +51,7 @@ public class Spiel extends JFrame {	//Klasse Spiel erfüllt die Funktion von Kla
 		});
 	}
 
-	//Methoden
+	//Methoden------------------------------------------------------
 	public void addSpieler(Spieler spieler){
 		spielerListe.add(spieler);
 	}

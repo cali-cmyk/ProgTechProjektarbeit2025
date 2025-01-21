@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;   //Klasse zum sortieren von ArrayListen
 
 public class Auswertung extends JFrame {
@@ -16,15 +15,16 @@ public class Auswertung extends JFrame {
     private JTextField textFieldGewonnen;
     private JLabel labelPunktedurchschnitt;
     private JTextField textFieldPunktedurchschnitt;
-    private JList listPunkteListe;
+    private JList<Integer> listPunkteListe;
     private JLabel labelPunkteliste;
-    private JButton buttonAufsteigendSortierenButton;
-    private JButton buttonAbsteigendSortierenButton;
+    private JButton buttonAufsteigendSortieren;
+    private JButton buttonAbsteigendSortieren;
     private JButton buttonBeenden;
     private JPanel panelAuswertung;
-
-    //Konstruktor
+    
     public Auswertung(){
+
+        //GUI Einstellungen
         setTitle("Auswertung");
         setSize(300,300);
         setContentPane(panelAuswertung);
@@ -34,49 +34,70 @@ public class Auswertung extends JFrame {
         listPunkteListe.setBackground(Color.white);
         listPunkteListe.setForeground(Color.black);
 
-        buttonAufsteigendSortierenButton.addActionListener(new ActionListener() {
+        //Interaktive Elemente
+        buttonAufsteigendSortieren.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                aufsteigendSortiert();
             }
         });
 
-        buttonAbsteigendSortierenButton.addActionListener(new ActionListener() {
+        buttonAbsteigendSortieren.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                absteigendSortiert();
             }
         });
 
         buttonBeenden.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                Spiel.spielBeenden();
             }
         });
     }
 
-    //Methoden
-    public double berechneDurchschnitt(){
-        //return den Durchschnitt aller Punkte die in der ArrayList punkteListe stehen
-        int x = 0;
-        return x;
+    //Methoden---------------------------------------------------
+    public double berechneDurchschnitt() {
+        ArrayList<Integer> punkteListe = Spiel.getPunkteListe();
+        if (punkteListe.isEmpty()) {
+            return 0;
+        }
+        double sum = 0;
+        for (int punkt : punkteListe) {
+            sum += punkt;
+        }
+        return sum / punkteListe.size();
     }
 
     public void absteigendSortiert(){
         ArrayList <Integer> punkteListe = Spiel.getPunkteListe();
         Collections.sort(punkteListe);
+        listPunkteListe.setListData(punkteListe.toArray(new Integer[0]));
     }
 
     public void aufsteigendSortiert(){
         ArrayList <Integer> punkteListe = Spiel.getPunkteListe();
         Collections.sort(punkteListe, Collections.reverseOrder());
+        listPunkteListe.setListData(punkteListe.toArray(new Integer[0]));
     }
 
-    public String gewonnenerSpieler(){
-        // return spieler mit nähester punktzahl zur 0 || 0;
-        String x = "ka";
-        return x;
-    }
+    public Spieler gewonnenerSpieler() {
+        ArrayList<Spieler> spielerListe = Spiel.getSpielerListe();
+        if (spielerListe.isEmpty()) {
+            return null;
+        }
 
+        Spieler gewinner = spielerListe.getFirst();
+        int naechstesGewinnPunkte = gewinner.getGewinnPunkte();     //ist Vergleichsoperator
+
+        for (Spieler spieler : spielerListe) {      //Methode iteriert durch alle Spieler in der spielerListe
+            int aktuelleGewinnPunkte = spieler.getGewinnPunkte();
+            if (aktuelleGewinnPunkte < naechstesGewinnPunkte) {
+                gewinner = spieler;
+                naechstesGewinnPunkte = aktuelleGewinnPunkte;
+            }
+        }
+        return gewinner;
+    }
 }

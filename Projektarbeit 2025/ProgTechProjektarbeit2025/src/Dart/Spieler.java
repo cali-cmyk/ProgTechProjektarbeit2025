@@ -7,11 +7,11 @@ public class Spieler {
     private int gewinnPunkte = 301;
 
     //Konstruktor
-    public Spieler(String name){     //wenn Spieler Objekte erstellt werden dann  ist GewinnPunkte fix, hat also keinen Nutzen hier
+    public Spieler(String name){     //wenn Spieler Objekte erstellt werden dann ist GewinnPunkte fix, hat also keinen Nutzen hier
         this.name = name;
     }
 
-    //Methoden
+    //Methoden---------------------------------------------------
     public String getName(){
         return name;
     }
